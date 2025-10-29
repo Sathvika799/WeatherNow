@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #6EE7B7 0%, #3B82F6 100%);
+  --card-bg: rgba(255, 255, 255, 0.15);
+  --blur: blur(14px);
+  --accent: #2563eb;
+  --text-dark: #1e293b;
+  --text-light: #f9fafb;
+  --muted: #9ca3af;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-light);
+  background: var(--bg-gradient);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* 🌤️ Main container */
+.app-root {
+  width: 100%;
+  max-width: 760px;
+  background: var(--card-bg);
+  backdrop-filter: var(--blur);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 24px 28px;
+  animation: fadeIn 0.7s ease-in;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.subtitle {
+  font-size: 15px;
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+/* Search bar */
+.search-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.search-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: var(--text-dark);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.search-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+}
+.search-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.04);
+}
+
+/* Error / status text */
+.error {
+  background: rgba(255, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fee2e2;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Location name */
+.location {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Weather card */
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  padding: 20px 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Left side (temperature) */
+.card-left {
+  display: flex;
+  flex-direction: column;
+}
+.temp {
+  font-size: 46px;
+  font-weight: 700;
+  color: #fff;
+}
+.desc {
+  color: var(--text-light);
+  opacity: 0.9;
+  margin-top: 6px;
+  font-size: 16px;
+}
+
+/* Right side (details) */
+.card-right {
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+}
+.row {
+  margin-bottom: 6px;
+}
+
+/* Footer */
+.help {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-light);
+  opacity: 0.8;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 540px) {
+  .search-form {
+    flex-direction: column;
+  }
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .card-right {
+    text-align: left;
+  }
+}
+.icon {
+  animation: float 2s ease-in-out infinite alternate;
+  margin-bottom: 6px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
